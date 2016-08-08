@@ -17,7 +17,7 @@ app.set('view engine', 'html'); // have res.render work with html files
 app.engine('html', swig.renderFile); // when giving html files to res.render, tell it to use swig
 swig.setDefaults({ cache: false });		// Turns off caching
 
-//router.use(express.static('public'));
+app.use(express.static('./stylesheets/style.css'));
 
 // Middleware functions
 // function ServerMessage(string){
@@ -30,7 +30,7 @@ app.use(bodyParser.json());
 app.use( morgan('dev') );
 
 // Setup routes
-//app.use("/", routes);
+app.use("/", routes);
 
 app.listen(3000, function(req, res){
 	console.log("Server is up on 3000!");
