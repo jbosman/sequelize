@@ -3,7 +3,7 @@
 {% block content %}
   <h3>Add a Page</h3>
   <hr>
-  <form method="POST" action="/wiki/">
+  <form method="POST" action="/wiki/add">
     
     <div class="form-group">
       <label for="author" class="col-sm-2 control-label">Name</label>
@@ -29,8 +29,7 @@
     <div class="form-group">
       <label for="content" class="col-sm-2 control-label">Content</label>
       <div class="col-sm-10">
-        <textarea name="content" type="text" class="form-control" rows="10" cols="10">
-        </textarea>
+        <textarea name="content" type="text" class="form-control" rows="10" cols="10"></textarea>
       </div>
     </div>
     
