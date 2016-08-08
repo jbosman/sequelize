@@ -5,6 +5,7 @@ var express = require('express');
 var models = require('./models');
 var app = express();
 var routes = require("./routes");
+var wikiRoutes = require("./routes/wiki");
 var swig = require('swig');
 var bodyParser = require('body-parser');
 
@@ -28,6 +29,7 @@ app.use( morgan('dev') );
 
 // Setup routes
 app.use("/", routes);
+app.use("/", wikiRoutes);
 
 app.listen(3000, function(req, res){
 	console.log("Server is up on 3000!");
