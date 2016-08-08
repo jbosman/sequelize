@@ -4,7 +4,7 @@ var path = require('path');
 var express = require('express');
 
 var app = express();
-var routes = ("./routes");
+var routes = require("./routes");
 
 
 var swig = require('swig');
