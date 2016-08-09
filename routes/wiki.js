@@ -2,7 +2,8 @@ var express = require('express');
 var wikiRouter = express.Router();
 var models = require('../models');
 var Page = models.Page; 
-var User = models.User; 
+var User = models.User;
+var console = require('console-advanced');
 wikiRouter.get('/wiki/add', function(req, res, next) {
     res.render('addpage');
 });
@@ -12,7 +13,6 @@ wikiRouter.post('/wiki/add', function(req, res, next) {
   // STUDENT ASSIGNMENT:
     // add definitions for `title` and `content`
     var url = req.body.title.split(' ').join('_');
-    url = url; 
     
   var page = Page.build({
       title: req.body.title,
@@ -35,16 +35,22 @@ wikiRouter.post('/wiki/add', function(req, res, next) {
 
 wikiRouter.get('/wiki/:page', function(req, res, next) {
 
-    console.log("url:", req.params.page);
     Page.findOne({
 	where: {
 	    urlTitle: req.params.page 
 	}
     })
 	.then(function(foundPage){
-	    res.json(foundPage);
+
+	    res.render('wikipage', {
+	    	"title": foundPage.title,
+	    	"author": foundPage.name,
+	    	"content": foundPage.content
+	     });
 	})
-	.catch(next);
+	.catch(function(err) {
+	    throw new Error(err);
+	});
     
 });
 
