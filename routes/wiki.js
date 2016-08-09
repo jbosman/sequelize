@@ -7,7 +7,6 @@ var console = require('console-advanced');
 
 
 wikiRouter.get('/', function(req, res){
-	console.log("got here");
 
 	Page.findAll()
 		.then(function(pages){
@@ -97,10 +96,12 @@ wikiRouter.get('/wiki/', function(req, res){
 	res.render("wikipage");
 });
 
-wikiRouter.get('/wiki/users', function(req, res, next) {
+wikiRouter.get('/users', function(req, res, next) {
 
-	user.findAll()
-		.then(function(users){
+    
+	User.findAll()
+	.then(function(users){
+	    console.log("USERS:", users);
 	    	res.render('users', {users: users});
 	})
 	.catch(function(err) {
