@@ -31,7 +31,7 @@ wikiRouter.post('/wiki/add', function(req, res, next) {
 
   // STUDENT ASSIGNMENT:
     // add definitions for `title` and `content`
-    var url = "wiki/" + req.body.title.split(' ').join('_');
+    var url = req.body.title.split(' ').join('_');
     
   var page = Page.build({
       title: req.body.title,
@@ -73,8 +73,7 @@ wikiRouter.post('/wiki/add', function(req, res, next) {
 
 wikiRouter.get('/wiki/:page', function(req, res, next) {
 
-	console.log(req.params.page);
-	var urlTitleNew = "/wiki/" + req.params.page;
+	var urlTitleNew = req.params.page;
 
     Page.findOne({
 	where: {
