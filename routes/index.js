@@ -6,11 +6,6 @@ var router = express.Router();
 // 	console.log("got here");
 // });
 
-router.get('/', function(req, res){
-	console.log("got here");
-	res.render('index');
-});
-
 
 // router.post('/', function(req, res){
 	

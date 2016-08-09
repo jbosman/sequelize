@@ -9,8 +9,8 @@ var wikiRoutes = require("./routes/wiki");
 var swig = require('swig');
 var bodyParser = require('body-parser');
 
-var page = models.Page.sync({force:true});
 var user = models.User.sync({force:true});
+var page = models.Page.sync({force:true});
 
 // Swig settings
 
